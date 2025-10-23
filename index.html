@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendario de eventos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Calendario de eventos</h1>
+      <p>Explora las actividades programadas y añade tus propios eventos.</p>
+    </header>
+
+    <main class="layout">
+      <section class="calendar" aria-label="Calendario mensual">
+        <div class="calendar__controls">
+          <button id="prevMonth" type="button" aria-label="Mes anterior">◀</button>
+          <h2 id="currentMonth" aria-live="polite"></h2>
+          <button id="nextMonth" type="button" aria-label="Mes siguiente">▶</button>
+        </div>
+        <div class="calendar__weekdays" aria-hidden="true"></div>
+        <div class="calendar__grid" role="grid" aria-labelledby="currentMonth"></div>
+      </section>
+
+      <section class="details" aria-label="Eventos del día seleccionado">
+        <h2 id="selectedDateLabel">Selecciona un día</h2>
+        <ul id="eventList" class="event-list" aria-live="polite"></ul>
+      </section>
+
+      <section class="form" aria-label="Añadir un nuevo evento">
+        <h2>Añadir evento</h2>
+        <form id="eventForm">
+          <label>
+            Título
+            <input id="eventTitle" name="title" type="text" required maxlength="80" />
+          </label>
+          <label>
+            Fecha
+            <input id="eventDate" name="date" type="date" required />
+          </label>
+          <label>
+            Hora
+            <input id="eventTime" name="time" type="time" />
+          </label>
+          <label>
+            Ubicación
+            <input id="eventLocation" name="location" type="text" maxlength="120" />
+          </label>
+          <label>
+            Descripción
+            <textarea id="eventDescription" name="description" rows="3" maxlength="200"></textarea>
+          </label>
+          <button type="submit">Guardar evento</button>
+          <p class="form__hint">Los eventos se guardan en esta sesión del navegador.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <small>Hecho con ❤️ para organizar tus actividades.</small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
